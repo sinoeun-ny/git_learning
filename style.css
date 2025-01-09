@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+    background-color:aliceblue;
+
+}
+header{
+    display:flex;
+    justify-content: space-between;
+}
+ui{
+    padding:5px;
+
+}
+main{
+    text-align:center;
+    justify-content: left;
+   line-height: 1.6;
+   padding:30px;
+}
+div label{
+   color:rgb(6, 6, 23);
+    margin-right:100px;
+}
+input{
+    border-radius: 5px;
+
+}
+button{
+    background-color: aqua;
+    margin: 10px;
+    border-radius: 5px;
+    width:100px;
+
+}
+h2{
+    margin: 2px;
+
+}
+button:hover{
+    background-color: blue;
+
+}
