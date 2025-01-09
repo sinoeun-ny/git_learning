@@ -1,0 +1,105 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+body{
+    margin-top:50px;
+   
+}
+h2{
+    padding:20px;
+    font-weight: bold;
+}
+.container{
+    background-color: rgb(228, 233, 233);
+    border-radius: 10px;
+    width:1000px;
+    padding:20px;
+    height: auto;
+}
+table{
+   margin-top:30px
+}
+table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-color:aliceblue;
+    text-align: center;
+    color:white;
+}
+.editLink{
+    background-color:rgb(20, 142, 248);
+    color:white;
+    border-radius:5px;
+}
+.deleteLink{
+    background-color:rgb(235, 29, 29);
+    color:white;
+    border-radius: 5px;
+}
+.btn ,btn-primary{
+    background-color: rgb(31, 122, 31);
+    color:white;
+    border-color: rgb(41, 218, 41);
+}
+.cancel{
+    background-color: rgb(4, 163, 220);
+    color:white;
+    width:80px;
+    height: 37px;
+    margin-left:10px;
+    border-radius: 5px;
+    text-align: center;
+}
+@media screen and (max-width: 600px) {
+    .container{
+        width: 100%;
+    }
+    table{
+        width: 100%;
+    }
+    .editLink{
+        width: 100%;
+        background-color:rgb(20, 142, 248);
+        color:white;
+        border-radius:5px;
+    }
+    .deleteLink{
+        width: 100%;
+        background-color:rgb(235, 29, 29);
+        color:white;
+        border-radius: 5px;
+    }
+    .btn{
+        width: 30%;
+    }
+    .cancel{
+        width: 30%;
+    }
+
+    
+}
+@media screen and (min-width :800px)
+{
+    .cancel{
+        margin-right:20px;
+        width:auto
+    }
+
+    .btn{
+        width: 30%;
+    }
+    .editLink{
+        width: 40%;
+        background-color:rgb(20, 142, 248);
+        color:white;
+        border-radius:5px;
+    }
+    .deleteLink{
+        width: 40%;
+        background-color:rgb(235, 29, 29);
+        color:white;
+        border-radius: 5px;
+    }
+
+}
+

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" a href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    $(function()
+{
+var button = $('.button');
+
+function switchToNext()
+{
+    var _this = $(this);
+    
+    if(_this.hasClass('active'))
+        return false;
+    else
+    {
+        $('.button.active').removeClass('active');
+        _this.addClass('active');
+    }
+}
+
+button.on('click',switchToNext);
+});
+  </script>
+<body>
+    <div id="app">
+        <div class="button active"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+        <div class="button"></div>
+      </div>
+
+</body>
+</html>

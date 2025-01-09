@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        margin:0;
+        padding:0;
+
+
+    }
+    .seperator{
+        text-align: center;
+            color: #aaa;
+            font-size: 12px;
+            margin-bottom: 20px;
+    }
+    .intro{
+        text-align:center;
+    }
+    .google_btn{
+        text-align: center;
+        line-height: 4;
+    }
+    .google_btn span{
+        margin:10px;
+    }
+    .google_btn img{
+        height: 30px;
+    }
+    .signin {
+        text-align: center;
+        line-height: 1.5;
+    }
+    .signin input{
+        width:295px;
+        height:30px;
+    }
+    .signin label{
+        margin-right:215px;
+        line-height: 2;
+    }
+     button{
+        width:300px;
+        margin:20px;
+        
+    }
+    .signin button{
+        height: 30px;
+        background-color: blue;
+        color:white;
+        border-radius: 7px;
+    }
+     .signin button :hover{
+        background-color: red;
+        color:black;
+    }
+    @media (max-width: 800px) {
+          .body {
+            display: flex;
+          }
+
+        }
+ 
+</style>
+<body>
+    <div class="untitle">
+        <h2>Untitled UI</h2>
+        
+    </div>
+  <div class="intro">
+    <h2>Your details</h2>
+    <p>Please provide your name and email</p><br>
+
+  </div>
+  <div class="google_btn">
+    <button onclick="">
+        <img src="Google_Icons-09-512.webp">
+        <span>Sign up with Google</span>
+    </button>
+  </div>
+  <div class="seperator">
+    -------------------------------------OR----------------------------------
+  </div>
+  
+  <div class="signin">
+        <label for="name">First name*</label><br>
+        <input type="text" id="name" placeholder="Enter your first name" required><br>
+
+        <label for="lname">Last name*</label><br>
+        <input type="text" id="lname" placeholder="Enter your last name" required><br>
+
+        <label for="mail">Email*</label><br>
+        <input type="text" id="mail" placeholder="Enter your email" required><br>
+
+
+        <button type="submit" class="btn_continue">Continue</button>
+  </div>
+</body>
+</html>

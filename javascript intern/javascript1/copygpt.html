@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    input, select, button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+    }
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 80%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background-color: #f8f8f8;
+    }
+    button {
+      cursor: pointer;
+    }
+    .edit-btn {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 3px;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Student Information</h1>
+  <form id="studentForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <select id="gender" required>
+      <option value=diable selected>Sex</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </select>
+    <input type="number" id="age" placeholder="Age" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="text" id="province" placeholder="Province" required>
+    <button type="button" id="addButton">Add</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>Province</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="studentTableBody"></tbody>
+  </table>
+
+  <script >
+    const form = document.getElementById('studentForm');
+    const addButton = document.getElementById('addButton');
+    const studentTableBody = document.getElementById('studentTableBody');
+
+    let studentList = [];
+    let editIndex = null;
+
+    addButton.addEventListener('click', () => {
+      const name = document.getElementById('name').value;
+      const gender = document.getElementById('gender').value;
+      const age = document.getElementById('age').value;
+      const email = document.getElementById('email').value;
+      const province = document.getElementById('province').value;
+
+      if (editIndex === null) {
+        // Add new student
+        studentList.push({ name, gender, age, email, province });
+      } else {
+        // Edit existing student
+        studentList[editIndex] = { name, gender, age, email, province };
+        editIndex = null;
+      }
+
+      form.reset();
+      renderTable();
+    });
+
+    function renderTable() {
+      studentTableBody.innerHTML = '';
+      studentList.forEach((student, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${index + 1}</td>
+          <td>${student.name}</td>
+          <td>${student.gender}</td>
+          <td>${student.age}</td>
+          <td>${student.email}</td>
+          <td>${student.province}</td>
+          <td>
+            <button class="edit-btn" onclick="editStudent(${index})">Edit</button>
+            <button class="delete-btn" onclick="deleteStudent(${index})">Delete</button>
+          </td>
+        `;
+        studentTableBody.appendChild(row);
+      });
+    }
+
+    function editStudent(index) {
+      const student = studentList[index];
+      document.getElementById('name').value = student.name;
+      document.getElementById('gender').value = student.gender;
+      document.getElementById('age').value = student.age;
+      document.getElementById('email').value = student.email;
+      document.getElementById('province').value = student.province;
+
+      editIndex = index;
+    }
+
+    function deleteStudent(index) {
+      studentList.splice(index, 1);
+      renderTable();
+    }
+  </script>
+</body>
+</html>

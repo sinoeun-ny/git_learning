@@ -1,0 +1,82 @@
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Animation Game</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+        }
+        .player {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .target {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: yellow;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="player" id="player"></div>
+    <div class="target" id="target"></div>
+    <script>
+        const player = document.getElementById('player');
+        const target = document.getElementById('target');
+        let score = 0;
+
+        function movePlayer(event) {
+            const rect = player.getBoundingClientRect();
+            switch(event.key) {
+                case 'ArrowUp':
+                    player.style.top = `${rect.top - 10}px`;
+                    break;
+                case 'ArrowDown':
+                    player.style.top = `${rect.top + 10}px`;
+                    break;
+                case 'ArrowLeft':
+                    player.style.left = `${rect.left - 10}px`;
+                    break;
+                case 'ArrowRight':
+                    player.style.left = `${rect.left + 10}px`;
+                    break;
+            }
+            checkCollision();
+        }
+
+        function moveTarget() {
+            const x = Math.random() * (window.innerWidth - 30);
+            const y = Math.random() * (window.innerHeight - 30);
+            target.style.left = `${x}px`;
+            target.style.top = `${y}px`;
+        }
+
+        function checkCollision() {
+            const playerRect = player.getBoundingClientRect();
+            const targetRect = target.getBoundingClientRect();
+            if (playerRect.left < targetRect.left + targetRect.width &&
+                playerRect.left + playerRect.width > targetRect.left &&
+                playerRect.top < targetRect.top + targetRect.height &&
+                playerRect.top + playerRect.height > targetRect.top) {
+                score++;
+                moveTarget();
+                console.log('Score:', score);
+            }
+        }
+
+        document.addEventListener('keydown', movePlayer);
+        moveTarget();
+    </script>
+</body>
+</html>
